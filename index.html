@@ -4,7 +4,8 @@
 		<script src="https://embed.twitch.tv/embed/v1.js"></script>
 		<script>
 			window.onload = function () {
-				var ch = window.location.href.split('/')[4];
+				var href = window.location.href.split('/');
+				var ch = href[href.length - 1];
 				if (ch.length > 0) {
 					<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
 					new Twitch.Embed("twitch-embed", {
