@@ -5,8 +5,8 @@
 		<script>
 			window.onload = function () {
 				var href = window.location.href.split('/');
-				var ch = href[href.length - 1];
-				if (ch.length > 0) {
+				var ch = href[href.length - 1].split('=')[1];
+				if (ch) {
 					<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
 					new Twitch.Embed("twitch-embed", {
 						width: 854,
@@ -17,7 +17,7 @@
 					});
 				}
 				else {
-					alert('Please add channel name at the end of url. https://anoname112.github.io/TwitchLite/<channel-name-here>');
+					alert('Please add channel name at the end of url. https://anoname112.github.io/TwitchLite/?ch=<channel-name-here>');
 				}
 			}
 		</script>
