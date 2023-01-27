@@ -3,14 +3,14 @@
 		<!-- Load the Twitch embed JavaScript file -->
 		<script src="https://embed.twitch.tv/embed/v1.js"></script>
 		<script>
-			window.onload = {
-				var c = window.location.href.split('/')[2];
-				if (c) {
+			window.onload = function () {
+				var ch = window.location.href.split('/')[4];
+				if (ch.length > 0) {
 					<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
 					new Twitch.Embed("twitch-embed", {
 						width: 854,
 						height: 480,
-						channel: c,
+						channel: ch,
 						// Only needed if this page is going to be embedded on other websites
 						parent: ["embed.example.com", "othersite.example.com"]
 					});
