@@ -3,27 +3,21 @@
 		<!-- Load the Twitch embed JavaScript file -->
 		<script src="https://embed.twitch.tv/embed/v1.js"></script>
 		<script>
-			function getParameterByName(name, url) {
-				if (!url) url = window.location.href;
-				name = name.replace(/[\[\]]/g, '\\$&');
-				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-				results = regex.exec(url);
-				if (!results) return null;
-				if (!results[2]) return '';
-				return decodeURIComponent(results[2].replace(/\+/g, ' '));
-			}
-
 			window.onload = {
-				var channel = getParameterByName('channel');
-				
-				<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
-				new Twitch.Embed("twitch-embed", {
-					width: 854,
-					height: 480,
-					channel: channel,
-					// Only needed if this page is going to be embedded on other websites
-					parent: ["embed.example.com", "othersite.example.com"]
-				});
+				var c = window.location.href.split('/')[2];
+				if (c) {
+					<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+					new Twitch.Embed("twitch-embed", {
+						width: 854,
+						height: 480,
+						channel: c,
+						// Only needed if this page is going to be embedded on other websites
+						parent: ["embed.example.com", "othersite.example.com"]
+					});
+				}
+				else {
+					alert('Please add channel name at the end of url. https://anoname112.github.io/TwitchLite/<channel-name-here>');
+				}
 			}
 		</script>
 	</head>
