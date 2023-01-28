@@ -6,7 +6,6 @@
 				padding: 0;
 			}
 		</style>
-		<!-- Load the Twitch embed JavaScript file -->
 		<script src="https://embed.twitch.tv/embed/v1.js"></script>
 		<script>
 			window.onload = function () {
@@ -16,13 +15,15 @@
 					var param = param.split('?');
 					var ch = param[param.length - 1];
 					if (ch.length > 0) {
-						<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+						// Create a Twitch.Embed object that will render within the "twitch-embed" element
 						new Twitch.Embed("twitch-embed", {
 							width: "100%",
 							height: "100%",
 							channel: ch,
 							// Only needed if this page is going to be embedded on other websites
-							parent: ["embed.example.com", "othersite.example.com"]
+							// parent: ["embed.example.com", "othersite.example.com"],
+							autoplay: true,
+							muted: false
 						});
 					}
 					else {
@@ -30,13 +31,12 @@
 					}
 				}
 				else {
-					alert('Please add channel name at the end of url.\nhttps://anoname112.github.io/TwitchLite/?<channel-name-here>');
+					alert('Please add channel id at the end of url.\nhttps://anoname112.github.io/TwitchLite/?<channel-id-here>');
 				}
 			}
 		</script>
 	</head>
 	<body>
-		<!-- Add a placeholder for the Twitch embed -->
 		<div id="twitch-embed"></div>
 	</body>
 </html>
