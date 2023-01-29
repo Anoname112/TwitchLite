@@ -4,34 +4,76 @@
 			*, body {
 				margin: 0;
 				padding: 0;
+				font-family: Consolas;
+				font-size: 13px;
 			}
+			
+			.myform {
+				background-color: #ccc;
+			}
+			
+			.myclass {
+				padding: 10px;
+			}
+			
+			.myclass input {
+				padding: 4px;
+			}			
 		</style>
-		<script src="https://embed.twitch.tv/embed/v1.js"></script>
+		<script src= "https://player.twitch.tv/js/embed/v1.js"></script>
 		<script>
+			const regex = new RegExp(/^[a-zA-Z0-9_.-]*$/);
+			
+			function processParams (href) {
+				var processed = [];
+				href = href.split('?');
+				href = href[href.length - 1];
+				var params = href.split("&");
+				for (var i = 0; i < params.length; i++) {
+					var param = params[i].split('=');
+					processed.push({
+						name: param[0],
+						value: param[1]
+					});
+				}
+				return processed;
+			}
+			
 			window.onload = function () {
-				var href = window.location.href.split('/');
-				var param = href[href.length - 1];
-				if (param.includes('?')) {
-					var param = param.split('?');
-					var ch = param[param.length - 1];
-					if (ch.length > 0) {
-						// Create a Twitch.Embed object that will render within the "twitch-embed" element
-						new Twitch.Embed("twitch-embed", {
-							width: "100%",
-							height: "100%",
-							channel: ch,
-							// Only needed if this page is going to be embedded on other websites
-							// parent: ["embed.example.com", "othersite.example.com"],
-							autoplay: true,
-							muted: false
-						});
-					}
-					else {
-						alert('Failed to find a valid channel.');
+				var success = false;
+				var href = window.location.href;
+				if (href.includes('?') && href.includes('=')) {
+					var params = processParams(href);
+					for (var i = 0; i < params.length; i++) {
+						if (params[i].name == 'ch') {
+							var ch = params[i].value;
+							if (regex.test(ch)) {
+								// Create a Twitch.Embed object that will render within the "twitch-embed" element
+								new Twitch.Player("twitch-embed", {
+									width: "100%",
+									height: "100%",
+									channel: ch,
+									// layout: "video-with-chat",
+									// Only needed if this page is going to be embedded on other websites
+									// parent: ["embed.example.com", "othersite.example.com"],
+									autoplay: true,
+									muted: false
+								});
+								
+								success = true;
+							}
+						}
 					}
 				}
-				else {
-					alert('Please add channel id at the end of url.\nhttps://anoname112.github.io/TwitchLite/?<channel-id-here>');
+				
+				// Failed to embed a channel
+				if (!success) {
+					document.getElementById('twitch-embed').innerHTML = '<form class="myform" method="get">' +
+							'<div class="myclass">' +
+								'Twitch Channel ID: <input type="text" id="ch" name="ch"> <input type="submit" value="Open">' +
+							'</div>' +
+						'</form>';
+					document.getElementById('ch').focus();
 				}
 			}
 		</script>
