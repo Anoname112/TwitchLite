@@ -1,2 +1,2 @@
 # TwitchLite
-https://anoname112.github.io/TwitchLite/?channel-id-here
+https://anoname112.github.io/TwitchLite/
