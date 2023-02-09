@@ -1,0 +1,18 @@
+*, body {
+	margin: 0;
+	padding: 0;
+	font-family: Consolas;
+	font-size: 13px;
+}
+
+.myform {
+	background-color: #ccc;
+}
+
+.myclass {
+	padding: 10px;
+}
+
+.myclass input {
+	padding: 4px;
+}
