@@ -63,7 +63,7 @@ window.onload = function () {
 					'Twitch Channel ID: <input type="text" id="ch" name="ch"> ' +
 					'<select id="mode" name="mode">' +
 						'<option value="player">Player Only</option>' +
-						'<option value="embed">Full Embed</option>' +
+						'<option value="embed">Player & Chat</option>' +
 					'</select> ' +
 					'<input type="submit" value="Open">' +
 				'</div>' +
