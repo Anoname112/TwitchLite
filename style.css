@@ -5,6 +5,14 @@
 	font-size: 13px;
 }
 
+input[type=text] {
+	height: 22px;
+}
+
+select {
+	height: 22px;
+}
+
 .myform {
 	background-color: #ccc;
 }
