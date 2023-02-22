@@ -38,7 +38,6 @@ window.onload = function () {
 					autoplay: true,
 					muted: false
 				});
-				
 				success = true;
 			}
 			else if (mode == 'embed') {
@@ -52,6 +51,7 @@ window.onload = function () {
 					autoplay: true,
 					muted: false
 				});
+				success = true;
 			}
 		}
 	}
