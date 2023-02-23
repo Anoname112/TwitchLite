@@ -5,12 +5,8 @@
 	font-size: 13px;
 }
 
-input[type=text] {
-	height: 22px;
-}
-
-select {
-	height: 22px;
+input[type=text], select {
+	height: 25px;
 }
 
 .myform {
