@@ -17,15 +17,15 @@ window.onload = function () {
 	var success = false;
 	var href = window.location.href;
 	if (href.includes('?') && href.includes('=')) {
-		var ch = null;
-		var mode = null;
+		var ch;
+		var mode;
 		var params = processParams(href);
 		for (var i = 0; i < params.length; i++) {
 			if (params[i].name == 'ch' && twitchIDRegex.test(params[i].value)) ch = params[i].value;
 			if (params[i].name == 'mode') mode = params[i].value;
 		}
 		
-		if (ch != null && mode != null) {
+		if (ch && mode) {
 			// Create embed object that will render within the "twitch" element
 			if (mode == 'player') {
 				new Twitch.Player("twitch", {
