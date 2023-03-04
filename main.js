@@ -60,7 +60,7 @@ window.onload = function () {
 	if (!success) {
 		document.getElementById('twitch').innerHTML = '<form class="myform" method="get">' +
 				'<div class="myclass">' +
-					'Channel ID: <input type="text" id="ch" name="ch"> ' +
+					'<input type="text" id="ch" name="ch" placeholder="Channel ID here.."> ' +
 					'<select id="mode" name="mode">' +
 						'<option value="player">Player Only</option>' +
 						'<option value="embed">Player & Chat</option>' +
