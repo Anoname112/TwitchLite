@@ -1,4 +1,4 @@
-*, body {
+body {
 	margin: 0;
 	padding: 0;
 	font-family: "Tahoma", "Segoe UI", "Trebuchet MS", "Arial", "Helvetica";
@@ -11,6 +11,11 @@ input[type=text] {
 
 select {
 	height: 25px;
+}
+
+#twitch {
+	height: 100vh;
+	overflow-y: hidden;
 }
 
 .myform {
