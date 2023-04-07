@@ -1,18 +1,3 @@
-function processParams (href) {
-	var processed = [];
-	href = href.split('?');
-	href = href[href.length - 1];
-	var params = href.split("&");
-	for (var i = 0; i < params.length; i++) {
-		var param = params[i].split('=');
-		processed.push({
-			name: param[0],
-			value: param[1]
-		});
-	}
-	return processed;
-}
-
 window.onload = function () {
 	var success = false;
 	var href = window.location.href;
@@ -70,4 +55,19 @@ window.onload = function () {
 			'</form>';
 		document.getElementById('ch').focus();
 	}
+}
+
+function processParams (href) {
+	var processed = [];
+	href = href.split('?');
+	href = href[href.length - 1];
+	var params = href.split("&");
+	for (var i = 0; i < params.length; i++) {
+		var param = params[i].split('=');
+		processed.push({
+			name: param[0],
+			value: param[1]
+		});
+	}
+	return processed;
 }

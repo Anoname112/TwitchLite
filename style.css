@@ -5,7 +5,11 @@
 	font-size: 13px;
 }
 
-input[type=text], select {
+input[type=text] {
+	height: 15px;
+}
+
+select {
 	height: 25px;
 }
 
