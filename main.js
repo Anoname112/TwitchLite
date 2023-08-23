@@ -6,7 +6,7 @@ window.onload = function () {
 		var mode;
 		var params = processParams(href);
 		for (var i = 0; i < params.length; i++) {
-			if (params[i].name == 'ch') ch = params[i].value.split('/').pop();
+			if (params[i].name == 'ch') ch = params[i].value.split('%2F').pop();
 			if (params[i].name == 'mode') mode = params[i].value;
 		}
 		
