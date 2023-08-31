@@ -1,4 +1,6 @@
 # TwitchLite
+Watching Twitch streams with less bloat.
+
 Live Demo: https://anoname112.github.io/TwitchLite/
 <br /><br />
 Screenshot:
